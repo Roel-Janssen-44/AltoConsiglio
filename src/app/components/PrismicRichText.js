@@ -1,7 +1,6 @@
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText as BasePrismicRichText } from "@prismicio/react";
 
-import { linkResolver } from "@/app/utils/LinkResolver";
 import { Heading } from "./Heading";
 
 /** @type {import("@prismicio/react").JSXMapSerializer} */
@@ -52,16 +51,23 @@ const defaultComponents = {
   strong: ({ children }) => (
     <strong className="font-semibold">{children}</strong>
   ),
-  hyperlink: ({ children, node }) => (
-    <PrismicNextLink
-      href={linkResolver(node.data)}
-      // field={node.data}
-      // linkResolver={linkResolver(node.data)}
-      className="underline decoration-1 underline-offset-2"
-    >
-      {children}
-    </PrismicNextLink>
-  ),
+  hyperlink: ({ children, node }) => {
+    const originalString = node.data.url;
+    const prefixToRemove = "altoconsiglio";
+
+    const strippedString = originalString.startsWith(prefixToRemove)
+      ? originalString.substring(prefixToRemove.length)
+      : originalString;
+
+    return (
+      <PrismicNextLink
+        href={strippedString}
+        className="underline decoration-1 underline-offset-2"
+      >
+        {children}
+      </PrismicNextLink>
+    );
+  },
 };
 
 export function PrismicRichText({ components, ...props }) {

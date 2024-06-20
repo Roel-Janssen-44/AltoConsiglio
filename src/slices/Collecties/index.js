@@ -3,7 +3,6 @@ import { PrismicRichText } from "@/components/PrismicRichText";
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
-import { linkResolver } from "@/app/utils/LinkResolver";
 
 /**
  * @typedef {import("@prismicio/client").Content.CollectiesSlice} CollectiesSlice
@@ -39,7 +38,7 @@ const Collecties = ({ slice }) => {
                     className="w-full relative group overflow-hidden"
                     key={"collectieItem-" + index}
                   >
-                    <PrismicNextLink href={linkResolver(item.category_link)}>
+                    <PrismicNextLink href={item.category_link}>
                       <PrismicNextImage
                         field={item.category_image}
                         fallbackAlt=""
@@ -63,7 +62,7 @@ const Collecties = ({ slice }) => {
                     className="w-full relative group overflow-hidden"
                     key={"collectieItem-" + index}
                   >
-                    <PrismicNextLink href={linkResolver(item.category_link)}>
+                    <PrismicNextLink href={item.category_link}>
                       <PrismicNextImage
                         field={item.category_image}
                         fallbackAlt=""

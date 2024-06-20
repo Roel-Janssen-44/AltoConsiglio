@@ -14,8 +14,8 @@ export default function ClientLayout({
   return (
     <MyProvider>
       <Navbar navigation={navigation} settings={settings} />
-      <main>{children}</main>
-      <Footer footerData={footerData} />
+      <main className="min-h-screen">{children}</main>
+      <Footer settings={settings} footerData={footerData} />
     </MyProvider>
   );
 }

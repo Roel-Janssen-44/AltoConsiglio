@@ -1,5 +1,5 @@
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { linkResolver } from "@/app/utils/LinkResolver";
+// import { linkResolver } from "@/app/utils/LinkResolver";
 
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { HiChevronRight } from "react-icons/hi";
@@ -32,7 +32,7 @@ export function Breadcrumb({ page }) {
               {page.data?.parent?.id && (
                 <>
                   <PrismicNextLink
-                    href={linkResolver(page.data.parent)}
+                    href={page.data.parent}
                     className="cursor-pointer font-bold hover:underline underline-offset-2"
                   >
                     {page.data?.parent.uid}

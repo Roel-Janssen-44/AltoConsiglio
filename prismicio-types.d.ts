@@ -4,7 +4,216 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = never;
+/**
+ * Item in *Footer → Kolom 1*
+ */
+export interface FooterDocumentDataColumn1Item {
+  /**
+   * Item field in *Footer → Kolom 1*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.column_1[].item
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  item: prismic.RichTextField;
+}
+
+/**
+ * Item in *Footer → Kolom 2*
+ */
+export interface FooterDocumentDataColumn2Item {
+  /**
+   * Item field in *Footer → Kolom 2*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.column_2[].item
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  item: prismic.RichTextField;
+}
+
+/**
+ * Item in *Footer → Kolom 3*
+ */
+export interface FooterDocumentDataColumn3Item {
+  /**
+   * Item field in *Footer → Kolom 3*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.column_3[].item
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  item: prismic.RichTextField;
+}
+
+/**
+ * Item in *Footer → Beleid links*
+ */
+export interface FooterDocumentDataLinksGroupItem {
+  /**
+   * Link field in *Footer → Beleid links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.links_group[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Link label field in *Footer → Beleid links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.links_group[].link_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_label: prismic.KeyTextField;
+}
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Titel kolom 1 field in *Footer*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.title_column_1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_column_1: prismic.TitleField;
+
+  /**
+   * Kolom 1 field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.column_1[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  column_1: prismic.GroupField<Simplify<FooterDocumentDataColumn1Item>>;
+
+  /**
+   * Titel kolom 2 field in *Footer*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.title_column_2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_column_2: prismic.TitleField;
+
+  /**
+   * Kolom 2 field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.column_2[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  column_2: prismic.GroupField<Simplify<FooterDocumentDataColumn2Item>>;
+
+  /**
+   * Titel kolom 3 field in *Footer*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.title_column_3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_column_3: prismic.TitleField;
+
+  /**
+   * Kolom 3 field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.column_3[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  column_3: prismic.GroupField<Simplify<FooterDocumentDataColumn3Item>>;
+
+  /**
+   * Beleid links field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.links_group[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links_group: prismic.GroupField<Simplify<FooterDocumentDataLinksGroupItem>>;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+type NavigatieDocumentDataSlicesSlice = NavigatieItemSlice;
+
+/**
+ * Content for Navigatie documents
+ */
+interface NavigatieDocumentData {
+  /**
+   * Slice Zone field in *Navigatie*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigatie.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<NavigatieDocumentDataSlicesSlice>;
+}
+
+/**
+ * Navigatie document from Prismic
+ *
+ * - **API ID**: `navigatie`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavigatieDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NavigatieDocumentData>,
+    "navigatie",
+    Lang
+  >;
+
+type PageDocumentDataSlicesSlice =
+  | ThemaSelectieSlice
+  | ContactSlice
+  | CollageSlice
+  | ParagraafSlice
+  | CollectiesSlice
+  | AfbeeldingMetTekstSlice
+  | HeroSlice;
 
 /**
  * Content for Page documents
@@ -20,6 +229,17 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.TitleField;
+
+  /**
+   * Parent page field in *Page*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.parent
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  parent: prismic.ContentRelationshipField;
 
   /**
    * Slice Zone field in *Page*
@@ -76,7 +296,134 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = PageDocument;
+type PageDocumentDataSlicesSlice =
+  | ThemaSelectieSlice
+  | ContactSlice
+  | CollageSlice
+  | ParagraafSlice
+  | CollectiesSlice
+  | AfbeeldingMetTekstSlice
+  | HeroSlice;
+
+/**
+ * Content for Page documents
+ */
+interface PageDocumentData {
+  /**
+   * Title field in *Page*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Parent page field in *Page*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.parent
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  parent: prismic.ContentRelationshipField;
+
+  /**
+   * Slice Zone field in *Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+  /**
+   * Site Title field in *Settings*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Title of the site
+   * - **API ID Path**: settings.siteTitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  siteTitle: prismic.TitleField;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SettingsDocumentData>,
+    "settings",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | FooterDocument
+  | NavigatieDocument
+  | PageDocument
+  | PageDocument
+  | SettingsDocument;
 
 /**
  * Primary content in *AfbeeldingMetTekst → Default → Primary*
@@ -810,9 +1157,23 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataColumn1Item,
+      FooterDocumentDataColumn2Item,
+      FooterDocumentDataColumn3Item,
+      FooterDocumentDataLinksGroupItem,
+      NavigatieDocument,
+      NavigatieDocumentData,
+      NavigatieDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      PageDocument,
+      PageDocumentData,
+      PageDocumentDataSlicesSlice,
+      SettingsDocument,
+      SettingsDocumentData,
       AllDocumentTypes,
       AfbeeldingMetTekstSlice,
       AfbeeldingMetTekstSliceDefaultPrimary,
