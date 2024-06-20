@@ -1,0 +1,79 @@
+{
+  "id": "thema_selectie",
+  "type": "SharedSlice",
+  "name": "ThemaSelectie",
+  "description": "ThemaSelectie",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "tekstlinks": {
+          "type": "Text",
+          "config": {
+            "label": "Kop Tekst links",
+            "placeholder": ""
+          }
+        },
+        "tekstRechts": {
+          "type": "Text",
+          "config": {
+            "label": "Kop Tekst Rechts",
+            "placeholder": ""
+          }
+        },
+        "afbeeldingLinks": {
+          "type": "Image",
+          "config": {
+            "label": "Afbeelding links",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "afbeeldingtekstLinks": {
+          "type": "Text",
+          "config": {
+            "label": "Afbeelding tekst links",
+            "placeholder": ""
+          }
+        },
+        "link_left": {
+          "type": "Link",
+          "config": {
+            "label": "Link linker afbeelding",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "afbeeldingRechts": {
+          "type": "Image",
+          "config": {
+            "label": "Afbeelding Rechts",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "afbeeldingTekstRechts": {
+          "type": "Text",
+          "config": {
+            "label": "Afbeelding tekst rechts",
+            "placeholder": ""
+          }
+        },
+        "link_right": {
+          "type": "Link",
+          "config": {
+            "label": "Link rechter afbeelding",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

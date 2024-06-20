@@ -22,12 +22,38 @@
           "single": "heading1"
         }
       },
+      "parent": {
+        "type": "Link",
+        "config": {
+          "label": "Parent page",
+          "select": "document",
+          "customtypes": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "rich_text": {
+            "thema_selectie": {
+              "type": "SharedSlice"
+            },
+            "contact": {
+              "type": "SharedSlice"
+            },
+            "collage": {
+              "type": "SharedSlice"
+            },
+            "paragraaf": {
+              "type": "SharedSlice"
+            },
+            "collecties": {
+              "type": "SharedSlice"
+            },
+            "afbeelding_met_tekst": {
+              "type": "SharedSlice"
+            },
+            "hero": {
               "type": "SharedSlice"
             }
           }

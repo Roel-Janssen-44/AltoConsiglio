@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type PageDocumentDataSlicesSlice = never;
 
 /**
  * Content for Page documents
@@ -79,48 +79,725 @@ export type PageDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument;
 
 /**
- * Primary content in *RichText → Primary*
+ * Primary content in *AfbeeldingMetTekst → Default → Primary*
  */
-export interface RichTextSliceDefaultPrimary {
+export interface AfbeeldingMetTekstSliceDefaultPrimary {
   /**
-   * Content field in *RichText → Primary*
+   * Achtergrond kleur field in *AfbeeldingMetTekst → Default → Primary*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.primary.content
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Kleur 1
+   * - **API ID Path**: afbeelding_met_tekst.default.primary.background
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background: prismic.SelectField<"Kleur 1" | "Kleur 2", "filled">;
+
+  /**
+   * Positie afbeelding field in *AfbeeldingMetTekst → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Links
+   * - **API ID Path**: afbeelding_met_tekst.default.primary.image_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_position: prismic.SelectField<"Links" | "Rechts", "filled">;
+
+  /**
+   * Tekst uitlijning field in *AfbeeldingMetTekst → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Links
+   * - **API ID Path**: afbeelding_met_tekst.default.primary.text_alignment
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  text_alignment: prismic.SelectField<"Links" | "Midden", "filled">;
+
+  /**
+   * Titel field in *AfbeeldingMetTekst → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: afbeelding_met_tekst.default.primary.title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  content: prismic.RichTextField;
+  title: prismic.TitleField;
+
+  /**
+   * Paragraaf field in *AfbeeldingMetTekst → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: afbeelding_met_tekst.default.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Button Label field in *AfbeeldingMetTekst → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: afbeelding_met_tekst.default.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Button link field in *AfbeeldingMetTekst → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: afbeelding_met_tekst.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Image field in *AfbeeldingMetTekst → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: afbeelding_met_tekst.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
- * Default variation for RichText Slice
+ * Default variation for AfbeeldingMetTekst Slice
  *
  * - **API ID**: `default`
- * - **Description**: RichText
+ * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type RichTextSliceDefault = prismic.SharedSliceVariation<
+export type AfbeeldingMetTekstSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<RichTextSliceDefaultPrimary>,
+  Simplify<AfbeeldingMetTekstSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *RichText*
+ * Slice variation for *AfbeeldingMetTekst*
  */
-type RichTextSliceVariation = RichTextSliceDefault;
+type AfbeeldingMetTekstSliceVariation = AfbeeldingMetTekstSliceDefault;
 
 /**
- * RichText Shared Slice
+ * AfbeeldingMetTekst Shared Slice
  *
- * - **API ID**: `rich_text`
- * - **Description**: RichText
+ * - **API ID**: `afbeelding_met_tekst`
+ * - **Description**: AfbeeldingMetTekst
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type RichTextSlice = prismic.SharedSlice<
-  "rich_text",
-  RichTextSliceVariation
+export type AfbeeldingMetTekstSlice = prismic.SharedSlice<
+  "afbeelding_met_tekst",
+  AfbeeldingMetTekstSliceVariation
+>;
+
+/**
+ * Primary content in *Collage → Items*
+ */
+export interface CollageSliceDefaultItem {
+  /**
+   * Afbeelding field in *Collage → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collage.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Collage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CollageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<CollageSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Collage*
+ */
+type CollageSliceVariation = CollageSliceDefault;
+
+/**
+ * Collage Shared Slice
+ *
+ * - **API ID**: `collage`
+ * - **Description**: Collage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CollageSlice = prismic.SharedSlice<
+  "collage",
+  CollageSliceVariation
+>;
+
+/**
+ * Primary content in *Collecties → Default → Primary*
+ */
+export interface CollectiesSliceDefaultPrimary {
+  /**
+   * Titel field in *Collecties → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collecties.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Paragraaf field in *Collecties → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collecties.default.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Tekst uitlijning field in *Collecties → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Links
+   * - **API ID Path**: collecties.default.primary.text_alignment
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  text_alignment: prismic.SelectField<"Links" | "Midden", "filled">;
+}
+
+/**
+ * Primary content in *Collecties → Items*
+ */
+export interface CollectiesSliceDefaultItem {
+  /**
+   * Categorie Link field in *Collecties → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collecties.items[].category_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  category_link: prismic.LinkField;
+
+  /**
+   * Categorie Naam field in *Collecties → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collecties.items[].category_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  category_name: prismic.TitleField;
+
+  /**
+   * Categorie Afbeeldign field in *Collecties → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collecties.items[].category_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  category_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Collecties Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CollectiesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CollectiesSliceDefaultPrimary>,
+  Simplify<CollectiesSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Collecties*
+ */
+type CollectiesSliceVariation = CollectiesSliceDefault;
+
+/**
+ * Collecties Shared Slice
+ *
+ * - **API ID**: `collecties`
+ * - **Description**: Collecties
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CollectiesSlice = prismic.SharedSlice<
+  "collecties",
+  CollectiesSliceVariation
+>;
+
+/**
+ * Primary content in *Contact → Default → Primary*
+ */
+export interface ContactSliceDefaultPrimary {
+  /**
+   * Naam veld field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Telefoonnummer veld field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.phone
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone: prismic.KeyTextField;
+
+  /**
+   * Email veld field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Bericht veld field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.message
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  message: prismic.KeyTextField;
+
+  /**
+   * Button field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation = ContactSliceDefault;
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
+>;
+
+/**
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Titel field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Paragraaf field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Button label field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Afbeelding field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Hero*
+ */
+type HeroSliceVariation = HeroSliceDefault;
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *NavigatieItem → Navigatie Item → Primary*
+ */
+export interface NavigatieItemSliceDefaultPrimary {
+  /**
+   * Label field in *NavigatieItem → Navigatie Item → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigatie_item.default.primary.label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
+
+  /**
+   * Link field in *NavigatieItem → Navigatie Item → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigatie_item.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Navigatie Item variation for NavigatieItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigatieItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NavigatieItemSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *NavigatieItem → Navigatie Item met Dropdown → Primary*
+ */
+export interface NavigatieItemSliceNavigatieItemMetDropdownPrimary {
+  /**
+   * Label field in *NavigatieItem → Navigatie Item met Dropdown → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigatie_item.navigatieItemMetDropdown.primary.label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
+
+  /**
+   * Link field in *NavigatieItem → Navigatie Item met Dropdown → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigatie_item.navigatieItemMetDropdown.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *NavigatieItem → Items*
+ */
+export interface NavigatieItemSliceNavigatieItemMetDropdownItem {
+  /**
+   * Label field in *NavigatieItem → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigatie_item.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
+
+  /**
+   * Link field in *NavigatieItem → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigatie_item.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Navigatie Item met Dropdown variation for NavigatieItem Slice
+ *
+ * - **API ID**: `navigatieItemMetDropdown`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigatieItemSliceNavigatieItemMetDropdown =
+  prismic.SharedSliceVariation<
+    "navigatieItemMetDropdown",
+    Simplify<NavigatieItemSliceNavigatieItemMetDropdownPrimary>,
+    Simplify<NavigatieItemSliceNavigatieItemMetDropdownItem>
+  >;
+
+/**
+ * Slice variation for *NavigatieItem*
+ */
+type NavigatieItemSliceVariation =
+  | NavigatieItemSliceDefault
+  | NavigatieItemSliceNavigatieItemMetDropdown;
+
+/**
+ * NavigatieItem Shared Slice
+ *
+ * - **API ID**: `navigatie_item`
+ * - **Description**: NavigatieItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigatieItemSlice = prismic.SharedSlice<
+  "navigatie_item",
+  NavigatieItemSliceVariation
+>;
+
+/**
+ * Primary content in *Paragraaf → Default → Primary*
+ */
+export interface ParagraafSliceDefaultPrimary {
+  /**
+   * Titel field in *Paragraaf → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: paragraaf.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Paragraaf field in *Paragraaf → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: paragraaf.default.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Paragraaf Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ParagraafSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ParagraafSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Paragraaf*
+ */
+type ParagraafSliceVariation = ParagraafSliceDefault;
+
+/**
+ * Paragraaf Shared Slice
+ *
+ * - **API ID**: `paragraaf`
+ * - **Description**: Paragraaf
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ParagraafSlice = prismic.SharedSlice<
+  "paragraaf",
+  ParagraafSliceVariation
+>;
+
+/**
+ * Primary content in *ThemaSelectie → Default → Primary*
+ */
+export interface ThemaSelectieSliceDefaultPrimary {
+  /**
+   * Kop Tekst links field in *ThemaSelectie → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thema_selectie.default.primary.tekstlinks
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tekstlinks: prismic.KeyTextField;
+
+  /**
+   * Kop Tekst Rechts field in *ThemaSelectie → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thema_selectie.default.primary.tekstRechts
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tekstRechts: prismic.KeyTextField;
+
+  /**
+   * Afbeelding links field in *ThemaSelectie → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thema_selectie.default.primary.afbeeldingLinks
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  afbeeldingLinks: prismic.ImageField<never>;
+
+  /**
+   * Afbeelding tekst links field in *ThemaSelectie → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thema_selectie.default.primary.afbeeldingtekstLinks
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  afbeeldingtekstLinks: prismic.KeyTextField;
+
+  /**
+   * Link linker afbeelding field in *ThemaSelectie → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thema_selectie.default.primary.link_left
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_left: prismic.LinkField;
+
+  /**
+   * Afbeelding Rechts field in *ThemaSelectie → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thema_selectie.default.primary.afbeeldingRechts
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  afbeeldingRechts: prismic.ImageField<never>;
+
+  /**
+   * Afbeelding tekst rechts field in *ThemaSelectie → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thema_selectie.default.primary.afbeeldingTekstRechts
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  afbeeldingTekstRechts: prismic.KeyTextField;
+
+  /**
+   * Link rechter afbeelding field in *ThemaSelectie → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thema_selectie.default.primary.link_right
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_right: prismic.LinkField;
+}
+
+/**
+ * Default variation for ThemaSelectie Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThemaSelectieSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ThemaSelectieSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ThemaSelectie*
+ */
+type ThemaSelectieSliceVariation = ThemaSelectieSliceDefault;
+
+/**
+ * ThemaSelectie Shared Slice
+ *
+ * - **API ID**: `thema_selectie`
+ * - **Description**: ThemaSelectie
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThemaSelectieSlice = prismic.SharedSlice<
+  "thema_selectie",
+  ThemaSelectieSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -137,10 +814,42 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
-      RichTextSlice,
-      RichTextSliceDefaultPrimary,
-      RichTextSliceVariation,
-      RichTextSliceDefault,
+      AfbeeldingMetTekstSlice,
+      AfbeeldingMetTekstSliceDefaultPrimary,
+      AfbeeldingMetTekstSliceVariation,
+      AfbeeldingMetTekstSliceDefault,
+      CollageSlice,
+      CollageSliceDefaultItem,
+      CollageSliceVariation,
+      CollageSliceDefault,
+      CollectiesSlice,
+      CollectiesSliceDefaultPrimary,
+      CollectiesSliceDefaultItem,
+      CollectiesSliceVariation,
+      CollectiesSliceDefault,
+      ContactSlice,
+      ContactSliceDefaultPrimary,
+      ContactSliceVariation,
+      ContactSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
+      NavigatieItemSlice,
+      NavigatieItemSliceDefaultPrimary,
+      NavigatieItemSliceNavigatieItemMetDropdownPrimary,
+      NavigatieItemSliceNavigatieItemMetDropdownItem,
+      NavigatieItemSliceVariation,
+      NavigatieItemSliceDefault,
+      NavigatieItemSliceNavigatieItemMetDropdown,
+      ParagraafSlice,
+      ParagraafSliceDefaultPrimary,
+      ParagraafSliceVariation,
+      ParagraafSliceDefault,
+      ThemaSelectieSlice,
+      ThemaSelectieSliceDefaultPrimary,
+      ThemaSelectieSliceVariation,
+      ThemaSelectieSliceDefault,
     };
   }
 }
