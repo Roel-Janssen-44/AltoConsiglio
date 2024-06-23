@@ -6,17 +6,28 @@ import { Heading } from "./Heading";
 /** @type {import("@prismicio/react").JSXMapSerializer} */
 const defaultComponents = {
   heading1: ({ children }) => (
-    <Heading as="h1" className="mb-7 mt-12 first:mt-0 last:mb-0">
+    <Heading
+      as="h1"
+      className="primary-title tracking-wider mb-7 mt-12 first:mt-0 last:mb-0"
+    >
       {children}
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="md" className="mb-7 mt-12 first:mt-0 last:mb-0">
+    <Heading
+      as="h2"
+      size="md"
+      className="primary-title text-primary tracking-wider mb-7 mt-12 first:mt-0 last:mb-0"
+    >
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className="mb-7 mt-12 first:mt-0 last:mb-0">
+    <Heading
+      as="h3"
+      size="sm"
+      className="primary-title tracking-wider mb-7 mt-12 first:mt-0 last:mb-0"
+    >
       {children}
     </Heading>
   ),

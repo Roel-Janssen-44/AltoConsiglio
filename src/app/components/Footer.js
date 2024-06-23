@@ -52,8 +52,8 @@ export default function Footer({ settings, footerData }) {
         </div>
       </div>
       <div className="py-4 border-t-2 border-t-white">
-        <div className="container flex flex-col lg:flex-row gap-6 justify-center items-center lg:justify-around">
-          <div>
+        <div className="container mx-auto flex flex-col lg:flex-row gap-6 justify-center items-center lg:justify-around">
+          <div className="text-center">
             <span>
               © 2023 {settings.data.siteTitle[0].text} | Gemaakt door{" "}
               <a

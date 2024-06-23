@@ -5,21 +5,22 @@ import { PrismicRichText } from "@/components/PrismicRichText";
 import { HiChevronRight } from "react-icons/hi";
 
 export function Breadcrumb({ page }) {
+  if (page.uid === "home") return null;
   if (page.uid === "privacy-policy") return <div className="h-10"></div>;
   return (
-    <div className="mt-20">
-      <div className="w-full h-64 relative overflow-hidden">
+    <div className="sm:px-6">
+      <div className="w-full h-80 relative overflow-hidden">
         <PrismicNextImage
           loader={undefined}
           loading="eager"
           width={1920}
           height={500}
           field={page.data?.meta_image}
-          className="pointer-events-none select-none object-cover object-center h-[300px]"
+          className="pointer-events-none select-none rounded-b-xl object-cover object-center h-[320px]"
         />
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-25"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-25 rounded-b-xl"></div>
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="text-white container mx-auto text-center mt-16">
+          <div className="text-white container mx-auto text-center mt-24">
             <PrismicRichText field={page.data?.title} />
             <div className="flex flex-row justify-center items-center text-lg gap-2">
               <a
@@ -32,7 +33,7 @@ export function Breadcrumb({ page }) {
               {page.data?.parent?.id && (
                 <>
                   <PrismicNextLink
-                    href={page.data.parent}
+                    href={page.data.parent.url}
                     className="cursor-pointer font-bold hover:underline underline-offset-2"
                   >
                     {page.data?.parent.uid}
