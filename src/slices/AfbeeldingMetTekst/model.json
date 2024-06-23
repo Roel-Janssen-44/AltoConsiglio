@@ -12,18 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "background": {
-          "type": "Select",
-          "config": {
-            "label": "Achtergrond kleur",
-            "placeholder": "",
-            "options": [
-              "Kleur 1",
-              "Kleur 2"
-            ],
-            "default_value": "Kleur 1"
-          }
-        },
         "image_position": {
           "type": "Select",
           "config": {

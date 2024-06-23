@@ -6,6 +6,13 @@
   "status": true,
   "json": {
     "Main": {
+      "quote": {
+        "type": "Text",
+        "config": {
+          "label": "Quote",
+          "placeholder": ""
+        }
+      },
       "title_column_1": {
         "type": "StructuredText",
         "config": {

@@ -20,18 +20,19 @@ const AfbeeldingMetTekst = ({ slice }) => {
     >
       <div
         className={clsx(
-          "relative container flex flex-col-reverse items-center justify-center gap-12 md:gap-10",
+          "relative container px-10 max-w-screen-lg mx-auto flex flex-col-reverse items-center justify-center gap-12 md:gap-10",
           slice.primary.image_position === "Links" && "md:flex-row",
           slice.primary.image_position === "Rechts" && "md:flex-row-reverse"
         )}
       >
         {prismic.isFilled.image(mainImage) && (
-          <div className="w-full md:w-1/2">
+          <div className="w-full max-w-lg mx-auto md:w-1/2 relative">
+            <div className="z-0 aspect-square absolute left-0 top-0 w-auto h-full rounded-lg bg-primary rotate-3"></div>
             <PrismicNextImage
               field={mainImage}
               alt=""
               fill={false}
-              className="pointer-events-none select-none object-cover"
+              className="z-20 relative pointer-events-none rounded-lg select-none object-cover"
             />
           </div>
         )}
@@ -45,7 +46,7 @@ const AfbeeldingMetTekst = ({ slice }) => {
           <PrismicRichText field={slice.primary.title} />
           <PrismicRichText field={slice.primary.paragraph} />
           <Button
-            type="primary"
+            type={"primary"}
             link={slice.primary.button_link}
             label={slice.primary.button_label}
           />

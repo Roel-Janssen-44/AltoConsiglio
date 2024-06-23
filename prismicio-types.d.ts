@@ -79,6 +79,17 @@ export interface FooterDocumentDataLinksGroupItem {
  */
 interface FooterDocumentData {
   /**
+   * Quote field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.quote
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
    * Titel kolom 1 field in *Footer*
    *
    * - **Field Type**: Title
@@ -429,17 +440,6 @@ export type AllDocumentTypes =
  * Primary content in *AfbeeldingMetTekst → Default → Primary*
  */
 export interface AfbeeldingMetTekstSliceDefaultPrimary {
-  /**
-   * Achtergrond kleur field in *AfbeeldingMetTekst → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Kleur 1
-   * - **API ID Path**: afbeelding_met_tekst.default.primary.background
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  background: prismic.SelectField<"Kleur 1" | "Kleur 2", "filled">;
-
   /**
    * Positie afbeelding field in *AfbeeldingMetTekst → Default → Primary*
    *

@@ -43,7 +43,12 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("page", params.uid)
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <div>
+      breadcrumb
+      <SliceZone slices={page.data.slices} components={components} />;
+    </div>
+  );
 }
 
 export async function generateStaticParams() {

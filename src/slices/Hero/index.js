@@ -20,20 +20,22 @@ const Hero = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="min-h-screen"
+      className="min-h-screen sm:mx-6"
     >
-      <div className="relative h-[100svh] min-h-[1000px] min-w-[1000px]">
+      <div className="relative h-[100svh] sm:pb-6 w-full">
         {prismic.isFilled.image(backgroundImage) && (
           <PrismicNextImage
             field={backgroundImage}
             width={imageWidth}
             priority
             height={imageHeight}
-            className="w-full h-full pointer-events-none select-none object-cover"
+            className="w-full h-full pointer-events-none rounded-b-xl select-none object-cover"
           />
         )}
-        <div className="absolute z-20 top-0 left-0 w-full h-full opacity-20 bg-black"></div>
-        <div className="absolute z-10 w-full left-0 sm:pl-12 lg:pl-24 top-[53%] -translateY-1/2">
+        <div className="absolute z-20 top-0 left-0 w-full h-full sm:pb-6">
+          <div className="relative w-full h-full rounded-xl opacity-20 bg-black"></div>
+        </div>
+        <div className="absolute z-30 w-auto left-6 sm:pl-12 lg:pl-24 top-[45%] -translateY-1/2">
           <div className="container w-auto">
             <div className="text-white max-w-[340px] md:max-w-md">
               <PrismicRichText field={slice.primary.title} />
