@@ -39,7 +39,7 @@ export default function Navbar({
   }, [pathname]);
 
   return (
-    <header className="z-30 flex justify-center items-center absolute top-0 bg-transparent w-full shadow-none px-10 md:px-10">
+    <header className="z-40 flex justify-center items-center absolute top-0 bg-transparent w-full shadow-none px-10 md:px-10">
       <div className="container flex text-white flex-wrap items-center md:items-baseline justify-between leading-none">
         <PrismicNextLink
           href="/"
@@ -57,7 +57,7 @@ export default function Navbar({
         <button
           aria-label="navigatie button"
           onClick={() => setShowNavbar(!showNavbar)}
-          className="flex relative z-20 md:hidden gap-1.5 flex-col justify-center items-center min-w-[44px] min-h-[44px]"
+          className="flex relative z-30 md:hidden gap-1.5 flex-col justify-center items-center min-w-[44px] min-h-[44px]"
         >
           <div
             className={`${
@@ -82,7 +82,7 @@ export default function Navbar({
         </button>
         {/* Menu items */}
         <nav
-          className={`absolute duration-300 top-0 left-0 w-screen h-screen flex justify-center 
+          className={`absolute duration-300 top-0 bg-white left-0 w-screen h-screen flex justify-center 
              md:bg-transparent ${
                showNavbar ? "translate-y-0" : "-translate-y-full"
              } md:block md:relative md:w-auto md:h-auto md:translate-y-0`}
@@ -91,7 +91,7 @@ export default function Navbar({
             {navigation?.data?.slices.map((slice) => (
               <li
                 key={prismic.asText(slice.primary.label)}
-                className="group py-3 font-semibold tracking-tight text-white relative"
+                className="group py-3 font-semibold tracking-tight text-black md:text-white relative"
               >
                 <Link
                   href={slice.primary.link.url}

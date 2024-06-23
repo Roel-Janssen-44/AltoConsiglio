@@ -70,7 +70,7 @@ export default function Footer({ settings, footerData }) {
             {footerData.data.links_group.map((item, index) => (
               <div key={`footer_item_links-${index}`}>
                 {index !== 0 && <span className="mx-2">|</span>}
-                <PrismicNextLink className="underline" href={item.link.url}>
+                <PrismicNextLink href={item.link.url}>
                   {item.link_label}
                 </PrismicNextLink>
               </div>
