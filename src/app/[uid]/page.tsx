@@ -48,7 +48,7 @@ export default async function Page({ params }: { params: Params }) {
     <div>
       {/* breadcrumb */}
       <Breadcrumb page={page} />
-      <SliceZone slices={page.data.slices} components={components} />;
+      <SliceZone slices={page.data.slices} components={components} />
     </div>
   );
 }

@@ -138,7 +138,7 @@ const Contact = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="w-full my-20"
     >
-      <div className="container max-w-4xl">
+      <div className="container md:px-20 lg:px-0 mx-auto max-w-4xl">
         <p
           className={`text-xl mb-10 ml-1 ${
             sendStatus === "Verzonden" ? "text-green-600" : ""

@@ -16,7 +16,7 @@ const Collecties = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="my-20"
     >
-      <div className="container">
+      <div className="container mx-auto">
         <h2
           className={`mb-5 font-semibold leading-tight tracking-tight md:leading-tight text-3xl md:text-4xl
             ${slice.primary.text_alignment == "Links" ? "text-left" : "text-center"}`}

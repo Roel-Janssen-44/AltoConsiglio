@@ -1,5 +1,4 @@
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-// import { linkResolver } from "@/app/utils/LinkResolver";
 
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { HiChevronRight } from "react-icons/hi";
@@ -46,9 +45,6 @@ export function Breadcrumb({ page }) {
           </div>
         </div>
       </div>
-      {/* <p className="lg:max-w-2xl container text-center sm:text-left mx-auto my-20">
-        {page.data?.meta_description}
-      </p> */}
     </div>
   );
 }

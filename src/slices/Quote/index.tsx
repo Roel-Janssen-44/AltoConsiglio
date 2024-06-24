@@ -32,7 +32,7 @@ const Quote = ({ slice }: QuoteProps): JSX.Element => {
         <div className="absolute left-0 top-0 w-full h-full bg-white opacity-80 rounded-xl" />
 
         <div className="flex z-20 py-20 pb-12 relative justify-center items-center">
-          <div className="max-w-[80%] md:max-w-4xl mx-auto">
+          <div className="max-w-[80%] md:max-w-3xl mx-auto">
             <h2 className="primary-title text-primary text-4xl font-bold tracking-wider mb-7 mt-0">
               {slice.primary.title}
             </h2>

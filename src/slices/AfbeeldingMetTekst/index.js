@@ -26,8 +26,8 @@ const AfbeeldingMetTekst = ({ slice }) => {
         )}
       >
         {prismic.isFilled.image(mainImage) && (
-          <div className="w-full max-w-lg mx-auto md:w-1/2 relative">
-            <div className="z-0 aspect-square absolute left-0 top-0 w-auto h-full rounded-lg bg-primary rotate-3"></div>
+          <div className="w-full max-w-lg mx-auto md:w-auto relative">
+            <div className="z-0 absolute left-0 top-0 w-full h-full rounded-lg bg-primary rotate-3"></div>
             <PrismicNextImage
               field={mainImage}
               alt=""

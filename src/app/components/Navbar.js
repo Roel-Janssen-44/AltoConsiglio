@@ -8,12 +8,10 @@ import Link from "next/link";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import * as prismic from "@prismicio/client";
-// import { linkResolver } from "@/app/utils/LinkResolver";
 
 import { HiChevronDown } from "react-icons/hi";
 
 import { useMyContext } from "../context";
-// import { formatPrismicUrl } from "../utils/utility";
 
 import { usePathname } from "next/navigation";
 
@@ -94,7 +92,7 @@ export default function Navbar({
                 className="group py-3 font-semibold tracking-tight text-black md:text-white relative"
               >
                 <Link
-                  href={slice.primary.link.url}
+                  href={slice.primary?.link?.url || "/"}
                   onClick={closeNavbar}
                   className="px-4 py-3 hover:underline underline-offset-4"
                 >

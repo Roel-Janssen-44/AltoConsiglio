@@ -27,7 +27,7 @@
             "label": "Paragraaf",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph,hyperlink"
           }
         }
       },
