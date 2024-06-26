@@ -26,19 +26,18 @@ const AfbeeldingMetTekst = ({ slice }) => {
         )}
       >
         {prismic.isFilled.image(mainImage) && (
-          <div className="w-full max-w-lg mx-auto md:w-auto relative">
+          <div className="w-full max-w-lg mx-auto md:w-auto relative ">
             <div className="z-0 absolute left-0 top-0 w-full h-full rounded-lg bg-primary rotate-3"></div>
             <PrismicNextImage
               field={mainImage}
               alt=""
-              fill={false}
-              className="z-20 relative pointer-events-none rounded-lg select-none object-cover"
+              className="z-20 relative w-full h-auto pointer-events-none rounded-lg select-none object-cover md:min-w-96"
             />
           </div>
         )}
         <div
           className={clsx(
-            "md:w-1/2 flex flex-col justify-center max-w-lg",
+            "md:w-1/2 flex flex-col justify-center md:max-w-lg",
             slice.primary.text_alignment === "Links" && "text-left",
             slice.primary.text_alignment === "Midden" && "text-center"
           )}

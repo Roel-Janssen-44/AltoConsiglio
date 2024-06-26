@@ -4,7 +4,7 @@ import { PrismicNextLink } from "@prismicio/next";
 export default function Footer({ settings, footerData }) {
   return (
     <footer className="bg-primary my-6 mx-6 text-white rounded-2xl py-20 pb-0 border-t-primary border-2">
-      <h3 className="mx-auto primary-title mb-10 text-center w-full container font-bold text-4xl md:text-left md:max-w-[575px] lg:max-w-[835px]">
+      <h3 className="mx-auto px-4 primary-title mb-10 text-center w-full container font-bold text-4xl md:text-left md:max-w-[575px] lg:max-w-[835px]">
         {footerData.data?.quote}
       </h3>
       <div className="container mx-auto flex flex-row flex-wrap justify-between md:max-w-xl lg:max-w-[1000px]">
