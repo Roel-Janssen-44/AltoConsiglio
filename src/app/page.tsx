@@ -16,8 +16,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
   const home = await client.getByUID("page", "home");
 
+  console.log("home.data");
+  console.log(home.data);
   return {
-    title: prismic.asText(home.data.title),
+    title: home.data.meta_title,
     description: home.data.meta_description,
     openGraph: {
       title: home.data.meta_title ?? undefined,

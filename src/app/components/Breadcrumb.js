@@ -19,7 +19,7 @@ export function Breadcrumb({ page }) {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-25 rounded-b-xl"></div>
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="text-white container mx-auto text-center mt-24">
+          <div className="text-white px-6 sm:px-0 container mx-auto text-center mt-24">
             <PrismicRichText field={page.data?.title} />
             <div className="flex flex-row justify-center items-center text-lg gap-2">
               <a
