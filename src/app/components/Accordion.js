@@ -44,7 +44,7 @@ const Accordion = ({ data }) => {
           <AccordionItem
             key={index}
             question={item.serviceTitle}
-            answer={item.serviceDescription[0].text}
+            answer={item.serviceDescription[0]?.text}
             isOpen={activeIndex === index}
             onClick={() => handleItemClick(index)}
           />
