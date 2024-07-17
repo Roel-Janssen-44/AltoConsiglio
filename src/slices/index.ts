@@ -9,4 +9,5 @@ export const components = {
   navigatie_item: dynamic(() => import("./NavigatieItem")),
   paragraaf: dynamic(() => import("./Paragraaf")),
   quote: dynamic(() => import("./Quote")),
+  sevices: dynamic(() => import("./Diensten")),
 };

@@ -218,6 +218,7 @@ export type NavigatieDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SevicesSlice
   | QuoteSlice
   | ContactSlice
   | ParagraafSlice
@@ -306,6 +307,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | SevicesSlice
   | QuoteSlice
   | ContactSlice
   | ParagraafSlice
@@ -954,6 +956,88 @@ type QuoteSliceVariation = QuoteSliceDefault;
  */
 export type QuoteSlice = prismic.SharedSlice<"quote", QuoteSliceVariation>;
 
+/**
+ * Item in *Diensten → Default → Primary → Diensten*
+ */
+export interface SevicesSliceDefaultPrimaryDienstenItem {
+  /**
+   * Dienst titel field in *Diensten → Default → Primary → Diensten*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sevices.default.primary.diensten[].serviceTitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  serviceTitle: prismic.KeyTextField;
+
+  /**
+   * Dienst beschrijving field in *Diensten → Default → Primary → Diensten*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sevices.default.primary.diensten[].serviceDescription
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  serviceDescription: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Diensten → Default → Primary*
+ */
+export interface SevicesSliceDefaultPrimary {
+  /**
+   * Titel field in *Diensten → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sevices.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Diensten field in *Diensten → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sevices.default.primary.diensten[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  diensten: prismic.GroupField<
+    Simplify<SevicesSliceDefaultPrimaryDienstenItem>
+  >;
+}
+
+/**
+ * Default variation for Diensten Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SevicesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SevicesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Diensten*
+ */
+type SevicesSliceVariation = SevicesSliceDefault;
+
+/**
+ * Diensten Shared Slice
+ *
+ * - **API ID**: `sevices`
+ * - **Description**: Sevices
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SevicesSlice = prismic.SharedSlice<
+  "sevices",
+  SevicesSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1009,6 +1093,11 @@ declare module "@prismicio/client" {
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
       QuoteSliceDefault,
+      SevicesSlice,
+      SevicesSliceDefaultPrimaryDienstenItem,
+      SevicesSliceDefaultPrimary,
+      SevicesSliceVariation,
+      SevicesSliceDefault,
     };
   }
 }
