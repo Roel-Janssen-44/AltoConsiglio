@@ -20,7 +20,7 @@ const AfbeeldingMetTekst = ({ slice }) => {
     >
       <div
         className={clsx(
-          "relative container px-10 max-w-screen-lg mx-auto flex flex-col-reverse items-center justify-center gap-12 md:gap-10",
+          "relative container px-10 lg:px-0 max-w-screen-lg mx-auto flex flex-col-reverse items-center justify-center gap-12 md:gap-10",
           slice.primary.image_position === "Links" && "md:flex-row",
           slice.primary.image_position === "Rechts" && "md:flex-row-reverse"
         )}

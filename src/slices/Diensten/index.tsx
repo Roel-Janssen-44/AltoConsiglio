@@ -18,7 +18,7 @@ const Sevices = ({ slice }: SevicesProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="my-20"
     >
-      <div className="container mx-auto px-6 sm:px-0">
+      <div className="container lg:max-w-screen-lg mx-auto px-10">
         {/* @ts-expect-error */}
         <PrismicRichText field={slice.primary.title} />
         <Accordion data={slice.primary.diensten} />

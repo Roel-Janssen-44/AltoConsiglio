@@ -1,52 +1,52 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Floating"
-            }
-          }
-        ]
-      },
-      "diensten": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "serviceTitle",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "pattern",
-                  "type": "Text"
-                }
-              ],
-              [
-                "serviceDescription",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "Ad consectetur aute amet laboris eu laborum consequat esse non aliquip sit anim aliqua. Fugiat nostrud aute ex. Sit laborum eu elit dolore eiusmod ea qui enim nisi culpa ullamco minim veniam reprehenderit eu."
-                      }
-                    }
-                  ]
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": []
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Floating"
+						}
+					}
+				]
+			},
+			"diensten": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"serviceTitle",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "pattern",
+									"type": "Text"
+								}
+							],
+							[
+								"serviceDescription",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Sint nostrud esse pariatur. Mollit ad minim laboris adipisicing ipsum esse minim tempor quis aliqua. Fugiat ipsum dolor deserunt cillum."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
 ]

@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { PrismicRichText } from "./PrismicRichText";
 
 const AccordionItem = ({ question, answer, isOpen, onClick }) => {
   const contentHeight = useRef();
@@ -24,7 +25,9 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
             : { height: "0px" }
         }
       >
-        <p className="answer-content">{answer}</p>
+        <div className="pb-3">
+          <PrismicRichText field={answer} />
+        </div>
       </div>
     </div>
   );
@@ -40,15 +43,19 @@ const Accordion = ({ data }) => {
   return (
     <div className="relative">
       <div className="accordion-container mx-auto">
-        {data?.map((item, index) => (
-          <AccordionItem
-            key={index}
-            question={item.serviceTitle}
-            answer={item.serviceDescription[0]?.text}
-            isOpen={activeIndex === index}
-            onClick={() => handleItemClick(index)}
-          />
-        ))}
+        {data?.map((item, index) => {
+          console.log(item.serviceDescription);
+
+          return (
+            <AccordionItem
+              key={index}
+              question={item.serviceTitle}
+              answer={item.serviceDescription}
+              isOpen={activeIndex === index}
+              onClick={() => handleItemClick(index)}
+            />
+          );
+        })}
       </div>
     </div>
   );

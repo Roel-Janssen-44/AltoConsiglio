@@ -13,8 +13,8 @@ import { Button } from "@/components/Button";
 const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.image;
 
-  const imageWidth = typeof window !== "undefined" ? window.innerWidth : 1000;
-  const imageHeight = typeof window !== "undefined" ? window.innerHeight : 1000;
+  const imageWidth = typeof window !== "undefined" ? window.innerWidth : 1920;
+  const imageHeight = typeof window !== "undefined" ? window.innerHeight : 1080;
 
   return (
     <section
@@ -35,7 +35,7 @@ const Hero = ({ slice }) => {
         <div className="absolute z-20 top-0 left-0 w-full h-full sm:pb-6">
           <div className="relative w-full h-full rounded-b-xl opacity-20 bg-black"></div>
         </div>
-        <div className="absolute z-30 w-auto left-6 sm:pl-12 lg:pl-24 top-[45%] -translateY-1/2">
+        <div className="absolute z-30 w-auto left-6 sm:pl-12 lg:pl-24 top-[35%] -translateY-1/2">
           <div className="container w-auto">
             <div className="text-white max-w-[340px] md:max-w-md">
               <PrismicRichText field={slice.primary.title} />

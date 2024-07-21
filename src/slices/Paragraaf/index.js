@@ -12,7 +12,10 @@ const Paragraaf = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="my-20"
     >
-      <div className="container max-w-3xl px-10 mx-auto">
+      <div
+        className="
+      max-w-[80%] px-4 md:max-w-3xl container mx-auto"
+      >
         <PrismicRichText field={slice.primary.title} />
         <PrismicRichText field={slice.primary.paragraph} />
       </div>

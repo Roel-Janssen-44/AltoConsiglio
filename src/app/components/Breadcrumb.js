@@ -8,18 +8,18 @@ export function Breadcrumb({ page }) {
   if (page.uid === "privacy-policy") return <div className="h-10"></div>;
   return (
     <div className="sm:px-6">
-      <div className="w-full h-80 relative overflow-hidden">
+      <div className="w-full h-[450px] relative overflow-hidden">
         <PrismicNextImage
           loader={undefined}
           loading="eager"
           width={1920}
           height={500}
           field={page.data?.meta_image}
-          className="pointer-events-none select-none rounded-b-xl object-cover object-center h-[320px]"
+          className="pointer-events-none select-none rounded-b-xl object-cover object-center h-[450px]"
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-25 rounded-b-xl"></div>
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="text-white px-6 sm:px-0 container mx-auto text-center mt-24">
+          <div className="text-white px-6 sm:px-0 container mx-auto text-center mt-36">
             <PrismicRichText field={page.data?.title} />
             <div className="flex flex-row justify-center items-center text-lg gap-2">
               <a

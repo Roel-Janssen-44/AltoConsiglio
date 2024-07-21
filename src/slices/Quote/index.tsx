@@ -3,6 +3,7 @@ import * as prismic from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { PrismicNextImage } from "@prismicio/next";
+import { Button } from "@/components/Button";
 
 /**
  * Props for `Quote`.
@@ -32,7 +33,7 @@ const Quote = ({ slice }: QuoteProps): JSX.Element => {
         <div className="absolute left-0 top-0 w-full h-full bg-white opacity-80 rounded-xl" />
 
         <div className="flex z-20 py-20 pb-12 relative justify-center items-center">
-          <div className="max-w-[80%] md:max-w-3xl mx-auto">
+          <div className="max-w-[80%] px-4 md:px-10 md:max-w-screen-lg mx-auto">
             <h2 className="primary-title text-primary text-4xl font-bold tracking-wider mb-7 mt-0">
               {slice.primary.title}
             </h2>
@@ -47,6 +48,14 @@ const Quote = ({ slice }: QuoteProps): JSX.Element => {
             <div className="primary-title rotate-180 text-primary -mt-12 text-7xl md:text-8xl font-bold">
               “
             </div>
+            {slice.primary.button_link && (
+              <Button
+                type={"primary"}
+                link={slice.primary.button_link}
+                label={slice.primary.button_label}
+                className={"relative"}
+              />
+            )}
           </div>
         </div>
       </div>

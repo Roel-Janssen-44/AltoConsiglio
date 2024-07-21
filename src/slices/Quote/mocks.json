@@ -46,6 +46,18 @@
 				"__TYPE__": "FieldContent",
 				"value": "steep",
 				"type": "Text"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "answer",
+				"type": "Text"
 			}
 		},
 		"items": []

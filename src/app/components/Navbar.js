@@ -37,8 +37,12 @@ export default function Navbar({
   }, [pathname]);
 
   return (
-    <header className="z-40 flex justify-center items-center absolute top-0 bg-transparent w-full shadow-none px-10 md:px-10">
-      <div className="container flex text-white flex-wrap items-center md:items-baseline justify-between leading-none">
+    <header
+      className={`z-40 flex justify-center items-center top-0 bg-transparent w-full shadow-none px-10 lg:px-10 ${
+        showNavbar ? "fixed" : "absolute"
+      }`}
+    >
+      <div className="container flex text-white flex-wrap items-center lg:items-baseline justify-between leading-none">
         <PrismicNextLink
           href="/"
           aria-hidden
@@ -55,7 +59,7 @@ export default function Navbar({
         <button
           aria-label="navigatie button"
           onClick={() => setShowNavbar(!showNavbar)}
-          className="flex relative z-30 md:hidden gap-1.5 flex-col justify-center items-center min-w-[44px] min-h-[44px]"
+          className="flex relative z-30 lg:hidden gap-1.5 flex-col justify-center items-center min-w-[44px] min-h-[44px]"
         >
           <div
             className={`${
@@ -81,15 +85,15 @@ export default function Navbar({
         {/* Menu items */}
         <nav
           className={`absolute duration-300 top-0 bg-white left-0 w-screen h-screen flex justify-center 
-             md:bg-transparent ${
+             lg:bg-transparent ${
                showNavbar ? "translate-y-0" : "-translate-y-full"
-             } md:block md:relative md:w-auto md:h-auto md:translate-y-0`}
+             } lg:block lg:relative lg:w-auto lg:h-auto lg:translate-y-0`}
         >
-          <ul className="flex flex-col justify-center md:flex-row items-center flex-wrap gap-2 md:gap-10">
+          <ul className="flex flex-col justify-center lg:flex-row items-center flex-wrap gap-2 lg:gap-10">
             {navigation?.data?.slices.map((slice) => (
               <li
                 key={prismic.asText(slice.primary.label)}
-                className="group py-3 font-semibold tracking-tight text-black md:text-white relative"
+                className="group py-3 font-semibold tracking-tight text-black lg:text-white relative"
               >
                 <Link
                   href={slice.primary?.link?.url || "/"}
@@ -106,7 +110,7 @@ export default function Navbar({
                     </div>
                     <ul
                       className="z-30 absolute min-w-[200px] shadow-md top-10 left-0 pt-6 pb-2 
-                     md:bg-white rounded hidden lg:group-hover:block"
+                     lg:bg-white rounded hidden lg:group-hover:block"
                     >
                       {slice.items?.map((item) => (
                         <li
