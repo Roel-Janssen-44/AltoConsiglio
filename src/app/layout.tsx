@@ -5,12 +5,6 @@ import Head from "next/head";
 
 import ClientLayout from "@/components/ClientLayout";
 
-// export const metadata = {
-//   title: "Peter Nelissen - Kunstenaar en Criminoloog",
-//   description:
-//     "Ontdek de fascinerende wereld van Peter Nelissen, een kunstenaar en criminoloog. Zijn portfolio toont een unieke mix van artistieke expressie en grondig criminologisch onderzoek, resulterend in werken die zowel visueel betoverend als intellectueel stimulerend zijn. Verken zijn galerij en ervaar hoe kunst en wetenschap elkaar verrijken.",
-// };
-
 export default async function RootLayout({
   children,
 }: Readonly<{

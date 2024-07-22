@@ -16,20 +16,12 @@ const CookieConsent = (props) => {
     setShowConsent(true);
     setCookie("localConsent", "true", {});
 
-    // Add Google Analytics script dynamically
     const script = document.createElement("script");
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-0309S7KH8C";
+    // Todo - Update the Google Analytics ID
+    // script.src = "https://www.googletagmanager.com/gtag/js?id=G-0309S7KH8C";
     script.async = true;
     document.head.appendChild(script);
 
-    // script.onload = () => {
-    //   window.dataLayer = window.dataLayer || [];
-    //   function gtag() {
-    //     window.dataLayer.push(arguments);
-    //   }
-    //   gtag("js", new Date());
-    //   gtag("config", "G-0309S7KH8C");
-    // };
     script.onload = () => {
       console.log("Google Analytics script loaded successfully");
       window.dataLayer = window.dataLayer || [];
@@ -37,6 +29,7 @@ const CookieConsent = (props) => {
         window.dataLayer.push(arguments);
       }
       gtag("js", new Date());
+      // Todo - Update the Google Analytics ID
       gtag("config", "G-0309S7KH8C");
     };
   };

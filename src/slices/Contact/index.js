@@ -154,11 +154,11 @@ const Contact = ({ slice }) => {
           {sendStatus}
         </p>
         <form ref={form}>
-          {/* <input
+          <input
             type="hidden"
             name="access_key"
-            value="935951b9-4a9e-457e-876d-425bc0035f99"
-          /> */}
+            value="b6df3aa4-d0b3-4817-b316-bdf39adcb806"
+          />
           {/* <input
           type="hidden"
           name="subject"
