@@ -63,7 +63,7 @@ export default function Navbar({
             <Image
               width={220}
               height={220}
-              src={"/logo_desktop.svg"}
+              src={"/logo-desktop.svg"}
               alt="Logo altoconsiglio"
               className="hidden sm:block md:mt-1 lg:h-10 lg:pb-0"
             />
