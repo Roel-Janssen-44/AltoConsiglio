@@ -18,7 +18,7 @@ const CookieConsent = (props) => {
 
     const script = document.createElement("script");
     // Todo - Update the Google Analytics ID
-    // script.src = "https://www.googletagmanager.com/gtag/js?id=G-T541J1G4HQ";
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-T541J1G4HQ";
     script.async = true;
     document.head.appendChild(script);
 
