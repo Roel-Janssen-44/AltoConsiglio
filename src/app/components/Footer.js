@@ -33,7 +33,7 @@ export default function Footer({ settings, footerData }) {
                 </li>
               ))}
               <a
-                className="cursor-pointer flex flex-row gap-1 items-center"
+                className="cursor-pointer flex flex-row gap-1 items-center justify-center md:justify-start"
                 href="https://www.linkedin.com/in/jeankoolen"
                 rel="nofollow"
               >
