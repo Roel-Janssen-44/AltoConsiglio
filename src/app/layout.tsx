@@ -2,7 +2,7 @@ import { PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
 import "./globals.css";
 import Head from "next/head";
-
+import CookieBanner from "@/components/CookieBanner";
 import ClientLayout from "@/components/ClientLayout";
 
 export default async function RootLayout({
@@ -17,7 +17,7 @@ export default async function RootLayout({
 
   return (
     <html lang="nl">
-      {/* <CookieBanner /> */}
+      <CookieBanner />
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>

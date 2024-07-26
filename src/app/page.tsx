@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   console.log("home.data");
   console.log(home.data);
   return {
-    title: home.data.meta_title,
+    title: home.data.meta_title + " | Alto Consiglio",
     description: home.data.meta_description,
     openGraph: {
       title: home.data.meta_title ?? undefined,

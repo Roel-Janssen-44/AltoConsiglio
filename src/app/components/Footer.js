@@ -5,11 +5,11 @@ import { FaLinkedin } from "react-icons/fa";
 export default function Footer({ settings, footerData }) {
   return (
     <footer className="bg-primary my-6 mx-6 text-white rounded-2xl py-20 pb-0 border-t-primary border-2">
-      <h3 className="mx-auto px-4 md:pl-0 primary-title mb-4 text-center w-full container font-bold text-4xl md:text-left md:max-w-[575px] lg:max-w-[835px]">
+      <h3 className="mx-auto px-4 md:pl-0 primary-title mb-4 text-center w-full container font-bold text-4xl md:text-left md:max-w-[575px] lg:max-w-[870px]">
         {footerData.data?.quote}
       </h3>
 
-      <div className="container flex flex-row justify-center mx-auto md:block md:max-w-[575px] lg:max-w-[835px]">
+      <div className="container flex flex-row justify-center mx-auto md:block md:max-w-[575px] lg:max-w-[870px]">
         <a
           href="/contact"
           rel="nofollow"

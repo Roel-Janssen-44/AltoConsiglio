@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-
+import Image from "next/image";
 import Link from "next/link";
 
 import { PrismicText } from "@prismicio/react";
@@ -47,12 +47,26 @@ export default function Navbar({
           href="/"
           aria-hidden
           onClick={closeNavbar}
-          className={`z-20 text-3xl h-full p-4 pl-0 font-semibold tracking-tight ${
+          className={`z-20 text-3xl relative h-full p-4 pl-0 font-semibold tracking-tight ${
             showNavbar ? "text-primary" : "text-white"
           }`}
         >
           <h1 className="text-3xl font-bold font-oswald">
-            {settings.data.siteTitle[0].text}
+            {/* {settings.data.siteTitle[0].text} */}
+            <Image
+              width={48}
+              height={48}
+              src={"/logo.svg"}
+              alt="Logo altoconsiglio"
+              className="max-h-8 sm:hidden"
+            />
+            <Image
+              width={220}
+              height={220}
+              src={"/logo_desktop.svg"}
+              alt="Logo altoconsiglio"
+              className="hidden sm:block md:mt-1 lg:h-10 lg:pb-0"
+            />
           </h1>
         </PrismicNextLink>
         {/* Mobile menu button */}
@@ -87,7 +101,7 @@ export default function Navbar({
           className={`absolute duration-300 top-0 bg-white left-0 w-screen h-screen flex justify-center 
              lg:bg-transparent ${
                showNavbar ? "translate-y-0" : "-translate-y-full"
-             } lg:block lg:relative lg:w-auto lg:h-auto lg:translate-y-0`}
+             } lg:block lg:relative lg:w-auto lg:h-auto lg:-translate-y-3/4`}
         >
           <ul className="flex flex-col justify-center lg:flex-row items-center flex-wrap gap-2 lg:gap-10">
             {navigation?.data?.slices.map((slice) => (

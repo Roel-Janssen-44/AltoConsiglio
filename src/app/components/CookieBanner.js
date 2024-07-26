@@ -18,7 +18,7 @@ const CookieConsent = (props) => {
 
     const script = document.createElement("script");
     // Todo - Update the Google Analytics ID
-    // script.src = "https://www.googletagmanager.com/gtag/js?id=G-0309S7KH8C";
+    // script.src = "https://www.googletagmanager.com/gtag/js?id=G-T541J1G4HQ";
     script.async = true;
     document.head.appendChild(script);
 
@@ -30,7 +30,7 @@ const CookieConsent = (props) => {
       }
       gtag("js", new Date());
       // Todo - Update the Google Analytics ID
-      gtag("config", "G-0309S7KH8C");
+      gtag("config", "G-T541J1G4HQ");
     };
   };
 
@@ -44,23 +44,23 @@ const CookieConsent = (props) => {
 
   return (
     <>
-      <div className="fixed inset-0 z-20 bg-slate-700 bg-opacity-70">
-        <div className="fixed bottom-0 left-0 right-0 flex items-center gap-4 justify-between px-4 py-8 bg-gray-100">
+      <div className="fixed inset-0 z-40 bg-slate-700 bg-opacity-30">
+        <div className="fixed bottom-0 md:bottom-6 rounded-lg left-0 md:left-6 right-0 w-auto md:mr-6 flex flex-col lg:flex-row lg:justify-center items-start gap-4 justify-between lg:items-center px-4 py-8 bg-gray-100">
           <span className="text-dark text-base sm:mr-16">
             Deze website gebruikt cookies om de gebruikerservaring te
             verbeteren. Door gebruik te maken van onze website geeft u
             toestemming voor alle cookies in overeenstemming met ons
             cookiebeleid.
           </span>
-          <div className="flex flex-col gap-4 md:flex-row">
+          <div className="flex flex-row gap-4 md:flex-row">
             <button
-              className="border-2 border-black py-2 px-8 rounded text-black"
+              className="border-2 border-primary py-2 px-8 rounded text-primary"
               onClick={() => denyCookie()}
             >
               Weigeren
             </button>
             <button
-              className="bg-black md:ml-4 py-2 px-8 rounded text-white"
+              className="bg-primary md:ml-4 py-2 px-8 rounded text-white"
               onClick={() => acceptCookie()}
             >
               Accepteren
@@ -75,7 +75,7 @@ const CookieConsent = (props) => {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-0309S7KH8C');
+      gtag('config', 'G-T541J1G4HQ');
     `}
       </Script> */}
     </>
