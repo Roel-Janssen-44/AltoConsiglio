@@ -52,18 +52,17 @@ export default function Navbar({
           }`}
         >
           <h1 className="text-3xl font-bold font-oswald">
-            {/* {settings.data.siteTitle[0].text} */}
             <Image
               width={48}
               height={48}
-              src={"/logo.svg"}
+              src={"/logo.webp"}
               alt="Logo altoconsiglio"
               className="max-h-8 sm:hidden"
             />
             <Image
               width={220}
               height={220}
-              src={"/logo-desktop.svg"}
+              src={"/logo-desktop.webp"}
               alt="Logo altoconsiglio"
               className="hidden sm:block md:mt-1 lg:h-10 lg:pb-0"
             />
