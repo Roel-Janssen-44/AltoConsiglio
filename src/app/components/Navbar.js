@@ -42,7 +42,7 @@ export default function Navbar({
         showNavbar ? "fixed" : "absolute"
       }`}
     >
-      <div className="container flex text-white flex-wrap items-center lg:items-baseline justify-between leading-none">
+      <div className="container flex text-white flex-wrap items-center lg:items-end justify-between leading-none">
         <PrismicNextLink
           href="/"
           aria-hidden
@@ -62,9 +62,16 @@ export default function Navbar({
             <Image
               width={220}
               height={220}
-              src={"/logo-desktop.webp"}
+              src={"/logo-horizontaal.svg"}
               alt="Logo altoconsiglio"
-              className="hidden sm:block md:mt-1 lg:h-10 lg:pb-0"
+              className="hidden sm:block lg:hidden md:mt-1"
+            />
+            <Image
+              width={220}
+              height={220}
+              src={"/logo_origineel.svg"}
+              alt="Logo altoconsiglio"
+              className="hidden lg:block md:mt-1 lg:h-24 lg:pb-0"
             />
           </h1>
         </PrismicNextLink>
@@ -100,7 +107,7 @@ export default function Navbar({
           className={`absolute duration-300 top-0 bg-white left-0 w-screen h-screen flex justify-center 
              lg:bg-transparent ${
                showNavbar ? "translate-y-0" : "-translate-y-full"
-             } lg:block lg:relative lg:w-auto lg:h-auto lg:-translate-y-3/4`}
+             } lg:block lg:relative lg:w-auto lg:h-auto`}
         >
           <ul className="flex flex-col justify-center lg:flex-row items-center flex-wrap gap-2 lg:gap-10">
             {navigation?.data?.slices.map((slice) => (
